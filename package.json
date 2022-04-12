@@ -23,9 +23,9 @@
     "@middy/core": "^2.5.7",
     "@middy/http-json-body-parser": "^2.5.7",
     "@middy/validator": "^2.5.7",
-    "@serverless-stack/cli": "0.66.0",
-    "@serverless-stack/resources": "0.66.0",
-    "aws-cdk-lib": "2.7.0",
+    "@serverless-stack/cli": "0.69.5",
+    "@serverless-stack/resources": "0.69.5",
+    "aws-cdk-lib": "2.15.0",
     "json-schema-to-ts": "^1.6.5"
   }
 }
