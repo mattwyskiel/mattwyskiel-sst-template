@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion,@typescript-eslint/no-explicit-any */
 export class Logger {
-  private static log(
-    logLevel: string,
-    message: string,
-    details?: Record<string, unknown>
-  ) {
+  private static log(logLevel: string, message: string, details?: Record<string, unknown>) {
     const logger = logFunctionForType(logLevel)!;
     if (process.env.IS_LOCAL) {
       logger(`${logLevel.toUpperCase()} - ${message}`);
@@ -20,26 +16,20 @@ export class Logger {
     logger(JSON.stringify(logObject));
   }
 
-  public static debug(
-    message: string,
-    details?: Record<string, unknown>
-  ): void {
-    Logger.log("debug", message, details);
+  public static debug(message: string, details?: Record<string, unknown>): void {
+    Logger.log('debug', message, details);
   }
 
-  public static error(
-    message: string,
-    details?: Record<string, unknown>
-  ): void {
-    Logger.log("error", message, details);
+  public static error(message: string, details?: Record<string, unknown>): void {
+    Logger.log('error', message, details);
   }
 
   public static info(message: string, details?: Record<string, unknown>): void {
-    Logger.log("info", message, details);
+    Logger.log('info', message, details);
   }
 
   public static warn(message: string, details?: Record<string, unknown>): void {
-    Logger.log("warn", message, { error: details });
+    Logger.log('warn', message, { error: details });
   }
 }
 
@@ -47,13 +37,13 @@ function logFunctionForType(
   type: string
 ): ((message?: any, ...optionalParams: any[]) => void) | undefined {
   switch (type) {
-    case "info":
+    case 'info':
       return console.info;
-    case "warn":
+    case 'warn':
       return console.warn;
-    case "error":
+    case 'error':
       return console.error;
-    case "debug":
+    case 'debug':
       return console.debug;
   }
   return undefined;
