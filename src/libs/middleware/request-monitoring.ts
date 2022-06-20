@@ -42,6 +42,7 @@ const requestMonitoring = <S>(): middy.MiddlewareObj<
         body: JSON.stringify({
           message: error.message,
           details: error.details,
+          trackingId: request.context.awsRequestId,
         }),
       };
     } else {
