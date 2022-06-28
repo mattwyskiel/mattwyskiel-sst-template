@@ -1,19 +1,20 @@
-import { Stack, App, StackProps, Api } from '@serverless-stack/resources';
+import { StackContext, Api } from '@serverless-stack/resources';
 
-export default class MyStack extends Stack {
-  constructor(scope: App, id: string, props?: StackProps) {
-    super(scope, id, props);
-
-    // Create a HTTP API
-    const api = new Api(this, 'Api', {
-      routes: {
-        'POST /': 'src/functions/lambda.handler',
+export function MyStack({ stack }: StackContext) {
+  const api = new Api(stack, 'api', {
+    routes: {
+      'POST /': 'functions/lambda.handler',
+    },
+    defaults: {
+      function: {
+        environment: {
+          LOG_LEVEL: process.env.LOG_LEVEL ?? 'info',
+        },
       },
-    });
+    },
+  });
 
-    // Show the endpoint in the output
-    this.addOutputs({
-      ApiEndpoint: api.url,
-    });
-  }
+  stack.addOutputs({
+    ApiEndpoint: api.url,
+  });
 }

@@ -1,0 +1,16 @@
+{
+  "name": "@mattwyskiel-sst-template/services",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@middy/core": "^3.1.0",
+    "@middy/http-json-body-parser": "^3.1.0",
+    "@middy/validator": "^3.1.0",
+    "json-schema-to-ts": "^2.5.3",
+    "winston": "^3.8.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.101"
+  }
+}
